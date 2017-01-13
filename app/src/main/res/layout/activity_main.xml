@@ -8,6 +8,7 @@
     tools:context="com.ladwa.aditya.kotlin_getstarted.MainActivity">
 
     <TextView
+        android:id="@+id/textHello"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
