@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun add(x: Int, y: Int): Int {
-            return x + y;
+            return x + y
         }
 
         fun subtract(x: Int, y: Int) = x - y
