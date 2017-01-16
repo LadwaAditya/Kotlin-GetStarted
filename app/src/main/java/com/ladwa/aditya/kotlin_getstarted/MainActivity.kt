@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
         fun toast(string: String, length: Int = Toast.LENGTH_SHORT, tag: String = MainActivity::class.java.simpleName) {
             Toast.makeText(this, "[$tag] [$string]", length).show()
         }
+
+        Person("Aditya", "Ladwa")
     }
 
     open class Animal(name: String)
