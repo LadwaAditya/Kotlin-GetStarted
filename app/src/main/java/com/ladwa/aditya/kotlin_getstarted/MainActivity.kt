@@ -2,39 +2,28 @@ package com.ladwa.aditya.kotlin_getstarted
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import android.widget.Toast
-import kotlinx.android.synthetic.main.activity_main.*
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+    private val items = listOf<String>(
+            "Mon 6/23 - Sunny - 31/17",
+            "Tue 6/24 - Foggy - 21/8",
+            "Wed 6/25 - Cloudy - 22/17",
+            "Thurs 6/26 - Rainy - 18/11",
+            "Fri 6/27 - Foggy - 21/10",
+            "Sat 6/28 - TRAPPED IN WEATHERSTATION - 23/18",
+            "Sun 6/29 - Sunny - 20/7"
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        textHello.text = "Hello Kotlin"
 
-        fun toast(string: String, length: Int = Toast.LENGTH_SHORT) {
-            Toast.makeText(this, string, length).show()
-        }
+        val foreCastList = findViewById(R.id.list) as RecyclerView
+        foreCastList.layoutManager = LinearLayoutManager(this)
+        foreCastList.adapter = ForecastListAdapter(items)
 
-        fun toast(string: String, length: Int = Toast.LENGTH_SHORT, tag: String = MainActivity::class.java.simpleName) {
-            Toast.makeText(this, "[$tag] [$string]", length).show()
-        }
 
-        Person("Aditya", "Ladwa")
-    }
-
-    open class Animal(name: String)
-
-    class Person(name: String, surname: String) : Animal("Dog") {
-        init {
-            Log.d("TAG", "Init")
-        }
-
-        fun add(x: Int, y: Int): Int {
-            return x + y
-        }
-
-        fun subtract(x: Int, y: Int) = x - y
     }
 }
