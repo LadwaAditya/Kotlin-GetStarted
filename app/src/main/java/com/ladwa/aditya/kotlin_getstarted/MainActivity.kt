@@ -52,7 +52,10 @@ class MainActivity : AppCompatActivity() {
 
         val name = person.name
 
+        val car = Car()
+        car.name = name
 
+        print(car.name)
     }
 
     public class Person {
