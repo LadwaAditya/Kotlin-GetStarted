@@ -38,16 +38,33 @@ class MainActivity : AppCompatActivity() {
         val iHex = 0x0f
         val l = 3L
         val dou = 3.5
-        val f =3.5F
+        val f = 3.5F
 
         val s = "Example"
         val chr = s[2]
 
         var sr = "Example"
-        for (c in s){
+        for (c in s) {
             print(c)
         }
+        val person = Person()
+        person.name = "Aditya"
+
+        val name = person.name
 
 
+    }
+
+    public class Person {
+        var name: String = ""
+    }
+
+
+    public class Car {
+        var name: String = ""
+            get() = field.toUpperCase()
+            set(value) {
+                field = "Car name is $value"
+            }
     }
 }
