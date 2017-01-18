@@ -24,6 +24,13 @@ class MainActivity : AppCompatActivity() {
         foreCastList.layoutManager = LinearLayoutManager(this)
         foreCastList.adapter = ForecastListAdapter(items)
 
+        val i: Int = 2
+        val d: Double = i.toDouble()
+
+        val c: Char = 'c'
+        val num: Int = c.toInt()
+
+
 
     }
 }
