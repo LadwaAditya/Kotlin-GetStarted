@@ -31,6 +31,23 @@ class MainActivity : AppCompatActivity() {
         val num: Int = c.toInt()
 
 
+        val bitwiseOr = 0 or 1
+        val bitwiseAnd = 1 and 1
+
+        val int = 12
+        val iHex = 0x0f
+        val l = 3L
+        val dou = 3.5
+        val f =3.5F
+
+        val s = "Example"
+        val chr = s[2]
+
+        var sr = "Example"
+        for (c in s){
+            print(c)
+        }
+
 
     }
 }
