@@ -1,9 +1,11 @@
 package com.ladwa.aditya.kotlin_getstarted
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     private val items = listOf<String>(
@@ -69,5 +71,10 @@ class MainActivity : AppCompatActivity() {
             set(value) {
                 field = "Car name is $value"
             }
+    }
+
+
+    fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+        Toast.makeText(this, message, duration).show()
     }
 }
