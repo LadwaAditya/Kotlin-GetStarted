@@ -34,15 +34,6 @@ class MainActivity : AppCompatActivity() {
         foreCastList.layoutManager = LinearLayoutManager(this)
         foreCastList.adapter = ForecastListAdapter(items)
 
-        val f1 = Request.Forecast(Date(),27.5F,"Shiny Day")
-        val f2 = f1.copy(temperature = 30F)
-
-        val (date,temperature,detail) = f1
-
-        doAsync() {
-            Request(url).run()
-            uiThread { longToast("Request Performed") }
-        }
 
 
 
