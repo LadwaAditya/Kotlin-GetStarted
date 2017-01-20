@@ -6,6 +6,11 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.widget.Toast
+import org.jetbrains.anko.custom.async
+import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.longToast
+import org.jetbrains.anko.uiThread
+import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
     private val items = listOf<String>(
@@ -18,6 +23,8 @@ class MainActivity : AppCompatActivity() {
             "Sun 6/29 - Sunny - 20/7"
     )
 
+    val url = "http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=1111111111"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -25,6 +32,11 @@ class MainActivity : AppCompatActivity() {
         val foreCastList = findViewById(R.id.list) as RecyclerView
         foreCastList.layoutManager = LinearLayoutManager(this)
         foreCastList.adapter = ForecastListAdapter(items)
+
+        doAsync() {
+            Request(url).run()
+            uiThread { longToast("Request Performed") }
+        }
 
 
 
