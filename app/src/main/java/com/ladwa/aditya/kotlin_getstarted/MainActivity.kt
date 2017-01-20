@@ -26,55 +26,12 @@ class MainActivity : AppCompatActivity() {
         foreCastList.layoutManager = LinearLayoutManager(this)
         foreCastList.adapter = ForecastListAdapter(items)
 
-        val i: Int = 2
-        val d: Double = i.toDouble()
-
-        val c: Char = 'c'
-        val num: Int = c.toInt()
 
 
-        val bitwiseOr = 0 or 1
-        val bitwiseAnd = 1 and 1
-
-        val int = 12
-        val iHex = 0x0f
-        val l = 3L
-        val dou = 3.5
-        val f = 3.5F
-
-        val s = "Example"
-        val chr = s[2]
-
-        var sr = "Example"
-        for (c in s) {
-            print(c)
+        fun Context.myToast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
+            Toast.makeText(this, message, duration).show()
         }
-        val person = Person()
-        person.name = "Aditya"
 
-        val name = person.name
-
-        val car = Car()
-        car.name = name
-
-        print(car.name)
-    }
-
-    public class Person {
-        var name: String = ""
-    }
-
-
-    public class Car {
-        var name: String = ""
-            get() = field.toUpperCase()
-            set(value) {
-                field = "Car name is $value"
-            }
-    }
-
-
-    fun Context.toast(message: CharSequence, duration: Int = Toast.LENGTH_SHORT) {
-        Toast.makeText(this, message, duration).show()
+        myToast("Hello")
     }
 }
