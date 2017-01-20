@@ -10,6 +10,7 @@ import org.jetbrains.anko.custom.async
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.longToast
 import org.jetbrains.anko.uiThread
+import java.util.*
 import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +33,10 @@ class MainActivity : AppCompatActivity() {
         val foreCastList = findViewById(R.id.list) as RecyclerView
         foreCastList.layoutManager = LinearLayoutManager(this)
         foreCastList.adapter = ForecastListAdapter(items)
+
+        val f1 = Request.Forecast(Date(),27.5F,"Shiny Day")
+        val f2 = f1.copy(temperature = 30F)
+
 
         doAsync() {
             Request(url).run()
