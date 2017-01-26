@@ -28,4 +28,9 @@ class ForecastRequest(val zipCode: String) {
     data class Temperature(val day: Float, val min: Float, val max: Float, val night: Float, val eve: Float, val morn: Float)
     data class Weather(val id: Long, val main: String, val description: String, val icon: String)
 
+
+    data class ForecastList(val city: String, val country: String, val dailyForecast: List<Forecast>)
+//    data class Forecast(val date: String, val description: String, val high: Int, val low: Int)
+
+
 }
