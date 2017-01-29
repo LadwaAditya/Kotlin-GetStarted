@@ -1,4 +1,4 @@
-package com.ladwa.aditya.kotlin_getstarted
+package com.ladwa.aditya.kotlin_getstarted.ui.activities
 
 import android.content.Context
 import android.os.Bundle
@@ -7,6 +7,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
+import com.ladwa.aditya.kotlin_getstarted.ui.adapters.ForecastListAdapter
+import com.ladwa.aditya.kotlin_getstarted.R
 import com.ladwa.aditya.kotlin_getstarted.domain.RequestForecastCommand
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
