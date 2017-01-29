@@ -16,15 +16,13 @@ class ForecastDataMapper {
                 forecast.city.name, forecast.city.country, convertForecastListToDomain(forecast.list))
     }
 
-    private fun convertForecastListToDomain(list: List<ForecastRequest.Forecast>) {
-        List<ModelForecast> {
-            return list.map { convertForecastItemToDomain(it) }
-        }
+    private fun convertForecastListToDomain(list: List<ForecastRequest.Forecast>): List<ModelForecast> {
+        return list.map { convertForecastItemToDomain(it) }
     }
 
     private fun convertForecastItemToDomain(forecast: ForecastRequest.Forecast): ModelForecast {
-        return ModelForecast(convertDate(forecast.dt), forecast.weather[0].description, forecast.temp.max.toInt(),
-                forecast.temp.min.toInt())
+        return ModelForecast(forecast.date, forecast.description, forecast.high,
+                forecast.low)
     }
 
     private fun convertDate(date: Long): String {
