@@ -7,10 +7,12 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
-import com.ladwa.aditya.kotlin_getstarted.ui.adapters.ForecastListAdapter
 import com.ladwa.aditya.kotlin_getstarted.R
 import com.ladwa.aditya.kotlin_getstarted.domain.commands.RequestForecastCommand
+import com.ladwa.aditya.kotlin_getstarted.domain.model.Forecast
+import com.ladwa.aditya.kotlin_getstarted.ui.adapters.ForecastListAdapter
 import org.jetbrains.anko.doAsync
+import org.jetbrains.anko.toast
 import org.jetbrains.anko.uiThread
 
 class MainActivity : AppCompatActivity() {
@@ -24,7 +26,13 @@ class MainActivity : AppCompatActivity() {
         doAsync {
             val result = RequestForecastCommand("94043").execute()
             uiThread {
-                foreCastList.adapter = ForecastListAdapter(result)
+                foreCastList.adapter = ForecastListAdapter(result,
+                        object : ForecastListAdapter.OnItemClickListener {
+                            override fun invoke(forecast: Forecast) {
+                                toast(forecast.date)
+                            }
+
+                        })
                 Log.d("Tag", "Received data")
             }
         }
