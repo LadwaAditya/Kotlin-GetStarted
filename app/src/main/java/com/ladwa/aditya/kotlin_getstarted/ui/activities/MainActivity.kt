@@ -9,7 +9,7 @@ import android.util.Log
 import android.widget.Toast
 import com.ladwa.aditya.kotlin_getstarted.ui.adapters.ForecastListAdapter
 import com.ladwa.aditya.kotlin_getstarted.R
-import com.ladwa.aditya.kotlin_getstarted.domain.RequestForecastCommand
+import com.ladwa.aditya.kotlin_getstarted.domain.commands.RequestForecastCommand
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.uiThread
 

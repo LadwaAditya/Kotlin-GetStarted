@@ -1,4 +1,4 @@
-package com.ladwa.aditya.kotlin_getstarted.domain
+package com.ladwa.aditya.kotlin_getstarted.domain.model
 
 /**
  * Created by aditya on 29/1/17.

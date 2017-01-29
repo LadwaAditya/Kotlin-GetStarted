@@ -3,7 +3,7 @@ package com.ladwa.aditya.kotlin_getstarted.ui.adapters
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import android.widget.TextView
-import com.ladwa.aditya.kotlin_getstarted.domain.DomainClasses
+import com.ladwa.aditya.kotlin_getstarted.domain.model.DomainClasses
 
 /**
  *
