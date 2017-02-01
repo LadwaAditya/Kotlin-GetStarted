@@ -4,14 +4,12 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import com.ladwa.aditya.kotlin_getstarted.R
 import com.ladwa.aditya.kotlin_getstarted.domain.model.Forecast
 import com.ladwa.aditya.kotlin_getstarted.domain.model.ForecastList
 import com.ladwa.aditya.kotlin_getstarted.ui.utils.ctx
 import com.squareup.picasso.Picasso
-import org.jetbrains.anko.find
+import kotlinx.android.synthetic.main.item_forecast.view.*
 
 /**
  *
@@ -33,29 +31,16 @@ class ForecastListAdapter(val weekForecast: ForecastList,
     }
 
     class ViewHolder(view: View,
-                     val itemClick: (Forecast) -> Unit)
-        : RecyclerView.ViewHolder(view) {
-        private val iconView: ImageView
-        private val dateView: TextView
-        private val descriptionView: TextView
-        private val maxTemperatureView: TextView
-        private val minTemperatureView: TextView
+                     val itemClick: (Forecast) -> Unit) : RecyclerView.ViewHolder(view) {
 
-        init {
-            iconView = view.find(R.id.icon)
-            dateView = view.find(R.id.date)
-            descriptionView = view.find(R.id.description)
-            maxTemperatureView = view.find(R.id.maxTemperature)
-            minTemperatureView = view.find(R.id.minTemperature)
-        }
 
         fun bindForecast(forecast: Forecast) {
             with(forecast) {
-                Picasso.with(itemView.ctx).load(iconUrl).into(iconView)
-                dateView.text = date
-                descriptionView.text = description
-                maxTemperatureView.text = "${high.toString()}º"
-                minTemperatureView.text = "${low.toString()}º"
+                Picasso.with(itemView.ctx).load(iconUrl).into(itemView.icon)
+                itemView.date.text = date
+                itemView.description.text = description
+                itemView.maxTemperature.text = "${high.toString()}º"
+                itemView.minTemperature.text = "${low.toString()}º"
                 itemView.setOnClickListener { itemClick(this) }
             }
         }
