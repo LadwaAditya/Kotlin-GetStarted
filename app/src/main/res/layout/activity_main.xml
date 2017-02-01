@@ -7,7 +7,7 @@
     tools:context="com.ladwa.aditya.kotlin_getstarted.ui.activities.MainActivity">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/list"
+        android:id="@+id/forecastList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </FrameLayout>
