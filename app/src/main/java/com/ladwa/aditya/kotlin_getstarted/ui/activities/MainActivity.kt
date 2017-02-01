@@ -9,7 +9,6 @@ import android.util.Log
 import android.widget.Toast
 import com.ladwa.aditya.kotlin_getstarted.R
 import com.ladwa.aditya.kotlin_getstarted.domain.commands.RequestForecastCommand
-import com.ladwa.aditya.kotlin_getstarted.domain.model.Forecast
 import com.ladwa.aditya.kotlin_getstarted.ui.adapters.ForecastListAdapter
 import org.jetbrains.anko.doAsync
 import org.jetbrains.anko.toast
@@ -26,13 +25,7 @@ class MainActivity : AppCompatActivity() {
         doAsync {
             val result = RequestForecastCommand("94043").execute()
             uiThread {
-                foreCastList.adapter = ForecastListAdapter(result,
-                        object : ForecastListAdapter.OnItemClickListener {
-                            override fun invoke(forecast: Forecast) {
-                                toast(forecast.date)
-                            }
-
-                        })
+                foreCastList.adapter = ForecastListAdapter(result) { toast(it.date) }
                 Log.d("Tag", "Received data")
             }
         }
