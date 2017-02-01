@@ -57,13 +57,8 @@ class ForecastListAdapter(val weekForecast: ForecastList,
                 maxTemperatureView.text = "${high.toString()}º"
                 minTemperatureView.text = "${low.toString()}º"
                 itemView.setOnClickListener { itemClick(this) }
-
             }
         }
     }
 
-
-    interface OnItemClickListener {
-        operator fun invoke(forecast: Forecast)
-    }
 }
